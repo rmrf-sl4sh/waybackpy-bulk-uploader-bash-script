@@ -10,7 +10,7 @@ fi
 echo ""
 read -p "[:] wayback machine bulk URL archive saver, shall we begin? (y/n) " resp
 echo ""
-#--if user enters 'y', begin loops to read/search tweets and save them:
+#--if user enters 'y', begin loop:
 if [ "$resp" = "y" ]; then
 	#--define variable $lines as each line in a file $1, and start for loop:
 	lines=$(cat $1)
