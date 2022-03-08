@@ -16,9 +16,9 @@ if [ "$resp" = "y" ]; then
 	lines=$(cat $1)
 	for line in $lines;
 		do
-			#--tell user which URL we are uploading and upload to the wayback machine:
+			#--tell user which URL we are uploading and upload to the wayback machine, and save output stout and sterr to a log file:
 			echo "[:] Uploading $line now..."
-			waybackpy --url $line --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:96.0) Gecko/20100101 Firefox/96.0" --save
+			waybackpy --url $line --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:96.0) Gecko/20100101 Firefox/96.0" --save > wbpbu.log.txt 2>&1
 			#--the wayback API limits 15 urls/min upload, wait 5 seconds to accomodate this
 			echo "[:] waiting 5 seconds..."
 			sleep 5
@@ -28,3 +28,4 @@ else
 	echo "[:] exiting..."
 	exit -1
 fi
+
